@@ -3,6 +3,7 @@ def main():
     day3_part1()
     day3_part2()
 
+
 def day3_part1():
     joltages = open("/home/javan/workspace/advent_of_code_2025/aoc25_day3/aoc25_day3_input").read().split()
 
@@ -35,13 +36,14 @@ def p1_find_joltage(joltage):
     return required_joltage
 
 
+
 def day3_part2():
     joltages = open("/home/javan/workspace/advent_of_code_2025/aoc25_day3/aoc25_day3_input").read().split()
 
     required_joltages = []
     for joltage in joltages:
         required_joltages.append(int(p2_find_joltage(joltage)))
-    
+
     print("Part 2 answer: ", sum(required_joltages))
     
 
@@ -52,11 +54,11 @@ def p2_find_joltage(joltage):
     previous_max_index = -1
     for i in range(12):
         previous_max = 0
-        for digit in range(previous_max_index + 1, len(joltage)):
-            joltage_to_check = int(joltage[digit])
+        for j in range(previous_max_index + 1, len(joltage)):
+            joltage_to_check = int(joltage[j])
             if joltage_to_check > previous_max:
                 previous_max = joltage_to_check
-                previous_max_index = digit
+                previous_max_index = j
         required_joltage += str(previous_max)
 
     return required_joltage
